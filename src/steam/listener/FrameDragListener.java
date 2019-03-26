@@ -1,11 +1,11 @@
+package steam.listener;
 
-import java.awt.Container;
+
 import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 /*
@@ -22,10 +22,17 @@ import javax.swing.JFrame;
     public  class FrameDragListener extends MouseAdapter {
 
         private final JFrame frame;
+        private final JDialog dialog;
         private Point mouseDownCompCoords = null;
 
         public FrameDragListener(JFrame frame) {
             this.frame = frame;
+            this.dialog = null;
+        }
+        public FrameDragListener(JDialog dialog)
+        {
+            this.dialog = dialog;
+            this.frame = null;
         }
 
         public void mouseReleased(MouseEvent e) {
@@ -38,7 +45,8 @@ import javax.swing.JFrame;
 
         public void mouseDragged(MouseEvent e) {
             Point currCoords = e.getLocationOnScreen();
-            frame.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
+            if(dialog==null) frame.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
+            else if(frame==null) dialog.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
         }
     }
   
