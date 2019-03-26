@@ -1,7 +1,10 @@
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -31,9 +34,10 @@ public class LoginFrame extends javax.swing.JFrame {
     FrameDragListener fdl;
     public LoginFrame() {
         this.setUndecorated(true);
-        this.setLocationRelativeTo(null);
+        centreWindow(this);
         makeDraggableWindow();
         initComponents();
+        System.out.println("Fuckyou");
         
         steamIcon.setIcon(addImage("steam-square-512.png", 50, 50));
         passField.setEchoChar('•');
@@ -46,6 +50,13 @@ public class LoginFrame extends javax.swing.JFrame {
         fdl = new FrameDragListener(this);
         this.addMouseListener(fdl);
         this.addMouseMotionListener(fdl);
+    }
+    private void centreWindow(Window frame)
+    {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+        frame.setLocation(x, y);
     }
     private ImageIcon addImage(String src,int width,int height)
     {
@@ -106,6 +117,8 @@ public class LoginFrame extends javax.swing.JFrame {
         accField.setBackground(new java.awt.Color(51, 51, 51));
         accField.setForeground(new java.awt.Color(153, 153, 153));
         accField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        accField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        accField.setSelectionColor(new java.awt.Color(204, 204, 204));
         accField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 accFieldFocusGained(evt);
