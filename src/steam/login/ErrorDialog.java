@@ -23,6 +23,7 @@ public class ErrorDialog extends javax.swing.JDialog {
         makeDraggableWindow();
         initComponents();
         m=(LoginFrame)parent;
+        
     }
     private void makeDraggableWindow()
     {
@@ -30,7 +31,11 @@ public class ErrorDialog extends javax.swing.JDialog {
         this.addMouseListener(fdl);
         this.addMouseMotionListener(fdl);
     }
-
+    public void setContent(String content)
+    {
+        jLabel1.setText(content);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

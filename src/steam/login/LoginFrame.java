@@ -340,6 +340,7 @@ public class LoginFrame extends javax.swing.JFrame {
             if(getUser.equals("")||getPass.equals(""))
             {
                 ErrorDialog err = new ErrorDialog(this, true);
+                err.setContent("Wrong username or password");
                 err.setVisible(true);
                 return;
             }

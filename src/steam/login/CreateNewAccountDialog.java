@@ -15,6 +15,7 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
 
     LoginFrame m;
     FrameDragListener fdl;
+    private boolean isNext = true;
     public CreateNewAccountDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.setLocationRelativeTo(parent);
@@ -22,7 +23,7 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         makeDraggableWindow();
         m = (LoginFrame)parent;
         initComponents();
-        jPanel1.disable();
+        setStatusSecondPanel(false);
     }
     private void makeDraggableWindow()
     {
@@ -30,22 +31,20 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         this.addMouseListener(fdl);
         this.addMouseMotionListener(fdl);
     }
-    
-    private void disablePrevPanel()
+    private void setStatusSecondPanel(boolean status)
     {
-        nameField.disable();
-        dateField.disable();
-        monthField.disable();
-        yearField.disable();
-        emailField.disable();
-        phoneField.disable();
-        checkFemale.setEnabled(false);
-        checkMale.setEnabled(false);
+        jPasswordField1.setEnabled(status);
     }
-    
-    private void disableSecondPanel()
+    private void setStatusFirstPanel(boolean status)
     {
-        
+        nameField.setEnabled(status);
+        dateField.setEnabled(status);
+        monthField.setEnabled(status);
+        yearField.setEnabled(status);
+        emailField.setEnabled(status);
+        phoneField.setEnabled(status);
+        checkMale.setEnabled(status);
+        checkFemale.setEnabled(status);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,6 +75,7 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         button2 = new java.awt.Button();
         jPanel1 = new javax.swing.JPanel();
         jPasswordField1 = new javax.swing.JPasswordField();
+        nameField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -170,7 +170,7 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         basicInfoPanelLayout.setHorizontalGroup(
             basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(basicInfoPanelLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(43, 43, 43)
                 .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(basicInfoPanelLayout.createSequentialGroup()
                         .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +179,7 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                         .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(basicInfoPanelLayout.createSequentialGroup()
                                 .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -193,18 +193,19 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
                             .addGroup(basicInfoPanelLayout.createSequentialGroup()
                                 .addComponent(checkMale)
                                 .addGap(46, 46, 46)
-                                .addComponent(checkFemale)))
+                                .addComponent(checkFemale))
+                            .addGroup(basicInfoPanelLayout.createSequentialGroup()
+                                .addGap(85, 85, 85)
+                                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18))
                     .addGroup(basicInfoPanelLayout.createSequentialGroup()
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         basicInfoPanelLayout.setVerticalGroup(
             basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, basicInfoPanelLayout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
+            .addGroup(basicInfoPanelLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -227,18 +228,34 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
                     .addComponent(jLabel5)
                     .addComponent(checkMale)
                     .addComponent(checkFemale))
-                .addGap(19, 19, 19)
-                .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(91, 91, 91)
+                .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
+        jPasswordField1.setBackground(new java.awt.Color(51, 51, 51));
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        jPasswordField1.setEchoChar('\u2022');
+        jPasswordField1.setEnabled(false);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
+            }
+        });
+
+        nameField1.setBackground(new java.awt.Color(51, 51, 51));
+        nameField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        nameField1.setForeground(new java.awt.Color(204, 204, 204));
+        nameField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        nameField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameField1ActionPerformed(evt);
             }
         });
 
@@ -247,16 +264,20 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(164, Short.MAX_VALUE)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(nameField1))
                 .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGap(54, 54, 54)
+                .addComponent(nameField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(314, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(basicInfoPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -266,13 +287,13 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(basicInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(basicInfoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(basicInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(basicInfoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -294,8 +315,16 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        jLayeredPane1.moveToFront(jPanel1);
-        disablePrevPanel();
+        
+        if(isNext)
+        {   
+            button1.setLocation(130,300);
+            button2.setVisible(false);
+            button2.disable();
+            setStatusFirstPanel(false);
+            setStatusSecondPanel(true);
+            jLayeredPane1.setLayer(jPanel1, 1);
+        }
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
@@ -305,6 +334,10 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void nameField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,6 +400,7 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField monthField;
     private javax.swing.JTextField nameField;
+    private javax.swing.JTextField nameField1;
     private javax.swing.JTextField phoneField;
     private javax.swing.JTextField yearField;
     // End of variables declaration//GEN-END:variables
