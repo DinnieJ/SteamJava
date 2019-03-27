@@ -169,6 +169,7 @@ public class LoginFrame extends javax.swing.JFrame {
         passField.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         passField.setForeground(new java.awt.Color(204, 204, 204));
         passField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        passField.setSelectionColor(new java.awt.Color(204, 204, 204));
         passField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passFieldFocusGained(evt);
@@ -343,9 +344,10 @@ public class LoginFrame extends javax.swing.JFrame {
                 return;
             }
             System.out.println("Login successful: "+getUser);
-            this.setVisible(false);
+            
             SteamMainFrame smf = new SteamMainFrame();
             smf.setVisible(true);
+            this.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(LoginFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

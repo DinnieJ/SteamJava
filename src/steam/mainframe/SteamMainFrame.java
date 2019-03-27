@@ -15,6 +15,7 @@ public class SteamMainFrame extends javax.swing.JFrame {
      * Creates new form SteamMainFrame
      */
     public SteamMainFrame() {
+        this.setUndecorated(true);
         initComponents();
     }
 

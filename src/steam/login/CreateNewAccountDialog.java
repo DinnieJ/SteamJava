@@ -22,12 +22,30 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         makeDraggableWindow();
         m = (LoginFrame)parent;
         initComponents();
+        jPanel1.disable();
     }
     private void makeDraggableWindow()
     {
         fdl = new FrameDragListener(this);
         this.addMouseListener(fdl);
         this.addMouseMotionListener(fdl);
+    }
+    
+    private void disablePrevPanel()
+    {
+        nameField.disable();
+        dateField.disable();
+        monthField.disable();
+        yearField.disable();
+        emailField.disable();
+        phoneField.disable();
+        checkFemale.setEnabled(false);
+        checkMale.setEnabled(false);
+    }
+    
+    private void disableSecondPanel()
+    {
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,12 +65,12 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         dateField = new javax.swing.JTextField();
         monthField = new javax.swing.JTextField();
         yearField = new javax.swing.JTextField();
-        nameField1 = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        nameField2 = new javax.swing.JTextField();
+        phoneField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        checkMale = new javax.swing.JRadioButton();
+        checkFemale = new javax.swing.JRadioButton();
         jLabel5 = new javax.swing.JLabel();
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
@@ -92,37 +110,37 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
         yearField.setForeground(new java.awt.Color(204, 204, 204));
         yearField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        nameField1.setBackground(new java.awt.Color(51, 51, 51));
-        nameField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nameField1.setForeground(new java.awt.Color(204, 204, 204));
-        nameField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        emailField.setBackground(new java.awt.Color(51, 51, 51));
+        emailField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        emailField.setForeground(new java.awt.Color(204, 204, 204));
+        emailField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setText("Email");
 
-        nameField2.setBackground(new java.awt.Color(51, 51, 51));
-        nameField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nameField2.setForeground(new java.awt.Color(204, 204, 204));
-        nameField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        phoneField.setBackground(new java.awt.Color(51, 51, 51));
+        phoneField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        phoneField.setForeground(new java.awt.Color(204, 204, 204));
+        phoneField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setText("Phone Number");
 
-        jRadioButton1.setBackground(new java.awt.Color(51, 51, 51));
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setForeground(new java.awt.Color(153, 153, 153));
-        jRadioButton1.setText("Male");
-        jRadioButton1.setBorder(null);
-        jRadioButton1.setBorderPainted(true);
+        checkMale.setBackground(new java.awt.Color(51, 51, 51));
+        buttonGroup1.add(checkMale);
+        checkMale.setForeground(new java.awt.Color(153, 153, 153));
+        checkMale.setText("Male");
+        checkMale.setBorder(null);
+        checkMale.setBorderPainted(true);
 
-        jRadioButton2.setBackground(new java.awt.Color(51, 51, 51));
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setForeground(new java.awt.Color(153, 153, 153));
-        jRadioButton2.setText("Female");
-        jRadioButton2.setBorder(null);
-        jRadioButton2.setBorderPainted(true);
+        checkFemale.setBackground(new java.awt.Color(51, 51, 51));
+        buttonGroup1.add(checkFemale);
+        checkFemale.setForeground(new java.awt.Color(153, 153, 153));
+        checkFemale.setText("Female");
+        checkFemale.setBorder(null);
+        checkFemale.setBorderPainted(true);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
@@ -170,12 +188,12 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
                                 .addGap(18, 18, 18)
                                 .addComponent(yearField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameField2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(basicInfoPanelLayout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(checkMale)
                                 .addGap(46, 46, 46)
-                                .addComponent(jRadioButton2)))
+                                .addComponent(checkFemale)))
                         .addGap(18, 18, 18))
                     .addGroup(basicInfoPanelLayout.createSequentialGroup()
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,16 +217,16 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(nameField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(nameField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(checkMale)
+                    .addComponent(checkFemale))
                 .addGap(19, 19, 19)
                 .addGroup(basicInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -276,7 +294,8 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
-        jLayeredPane1.setLayer(jPanel1, 1);
+        jLayeredPane1.moveToFront(jPanel1);
+        disablePrevPanel();
     }//GEN-LAST:event_button1ActionPerformed
 
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
@@ -334,7 +353,10 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
     private java.awt.Button button1;
     private java.awt.Button button2;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton checkFemale;
+    private javax.swing.JRadioButton checkMale;
     private javax.swing.JTextField dateField;
+    private javax.swing.JTextField emailField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -343,12 +365,9 @@ public class CreateNewAccountDialog extends javax.swing.JDialog {
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField monthField;
     private javax.swing.JTextField nameField;
-    private javax.swing.JTextField nameField1;
-    private javax.swing.JTextField nameField2;
+    private javax.swing.JTextField phoneField;
     private javax.swing.JTextField yearField;
     // End of variables declaration//GEN-END:variables
 }
