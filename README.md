@@ -1,4 +1,2 @@
 # SteamJava
-Java version of Steam using Java Swing
-25-3-2019 : Create front-end for login form
-26-3-2019 : Create addAccount dialog, linked database to loginForm
+THIS IS STEAM DESKTOP APPLICATION USING JAVA SWING AS GUI. THIS IS ONLY FOR STUDYING PURPOSE AND NOTHING ELSE. AND I KNOW JAVA SWING IS SHIT SO MAYBE I JUST WASTING TIME IN THIS APP
